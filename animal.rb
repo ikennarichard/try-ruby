@@ -1,8 +1,10 @@
 # class vs object
+require './remover.rb'
+require './foods.rb'
 
 class Animal
 
-  attr_accessor :name # for getting an setting name
+  attr_accessor :name # for getting and setting name
 
   def initialize(type, name = "Unknown", number_of_legs=0)
 
@@ -10,6 +12,7 @@ class Animal
     @name = name
     @number_of_legs = number_of_legs
     @type = type
+    @liked_food = NoFood.new()
 
   end
 
@@ -48,13 +51,22 @@ class Animal
   # def name=(value)
   #   @name = value
   # end
+
+  def remove_leg
+    remover = Remover.new()
+    @number_of_legs = remover.decrease(@number_of_legs, 2)
+  end
   
+  def likes_food?(food)
+    @liked_food.is_liked?(food)
+  end
+
 end
 
 animal_1 = Animal.new('dog','Bob', 4)
-animal_2 = Animal.new('cat','Tin', 2)
 
 
-animal_1.name = 'Casper'
 
-# p animal_1.name
+animal_1.remove_leg
+
+p animal_1.number_of_legs
