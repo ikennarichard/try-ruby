@@ -8,9 +8,10 @@ altered by decorators.
 
 class Component
 
-def operation
-  raise NotImplementedError, "#{self.class} has no implemented method '#{__method__}'"
+  def operation
+    puts 'Base component'
 
+  end
 end
 
 
@@ -23,6 +24,7 @@ operations. There might be several variations of these classes
 class ConcreteComponent < Component
 
   def operation
+    super
     'ConcreteComponent'
   end
 end
@@ -62,7 +64,9 @@ class ConcreteDecoratorB < Decorator
   # @return [String]
   def operation
     "ConcreteDecoratorB(#{@component.operation})"
+  
   end
+end
 
   
 # The client code works with all objects using the Component interface. This way
