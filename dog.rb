@@ -18,7 +18,3 @@ class Dog < Animal
   end
 
 end
-
-dog = Dog.new('black', 'Pira')
-
-p dog.animal_emoji

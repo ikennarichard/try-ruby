@@ -17,8 +17,3 @@ class Cat < Animal
     '💩'
   end
 end
-
-
-cat_1 = Cat.new(4, 'Inika')
-
-p cat_1.animal_emoji

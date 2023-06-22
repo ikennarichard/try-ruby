@@ -5,6 +5,7 @@ require './foods.rb'
 class Animal
 
   attr_accessor :name # for getting and setting name
+  attr_accessor :owner, :visits
 
   def initialize(type, name = "Unknown", number_of_legs=0)
 
@@ -13,8 +14,13 @@ class Animal
     @number_of_legs = number_of_legs
     @type = type
     @liked_food = NoFood.new()
+    @visits = []
 
   end
+
+  def owner =(owner)
+    @owner = owner
+    owner.animals.push(self) unless owner.animals.include?(self)
 
   # make animal speak
   def speak
@@ -62,11 +68,3 @@ class Animal
   end
 
 end
-
-animal_1 = Animal.new('dog','Bob', 4)
-
-
-
-animal_1.remove_leg
-
-p animal_1.number_of_legs

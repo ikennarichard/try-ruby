@@ -14,4 +14,4 @@ class CatFood
   def is_liked?(food)
    ["egg", "meat"].member?(food)
   end
-endz
+end
