@@ -14,13 +14,12 @@ class Animal
     @number_of_legs = number_of_legs
     @type = type
     @liked_food = NoFood.new()
+    # visits handles the many to many relationship
+    # between animals and vets
+    
     @visits = []
 
   end
-
-  def owner =(owner)
-    @owner = owner
-    owner.animals.push(self) unless owner.animals.include?(self)
 
   # make animal speak
   def speak
